@@ -106,3 +106,88 @@ angular.module('TD', ['TD.app', 'TD.log']).run(function($window, settings, edito
     }, 50);
   });
 });
+
+
+
+
+// HIGHLIGHTING - just for presenting controllers
+// Super hacked, don't look into this code :-D
+
+
+var divsCache = {};
+var names = [];
+
+angular.forEach(document.querySelectorAll('[ng-controller]'), function(elm) {
+  var ctrlName = elm.getAttribute('ng-controller');
+  var div = angular.element(document.createElement('div'));
+
+  div.addClass('controller-highlight ' + ctrlName);
+  div.html('<span>' + ctrlName + '</span>');
+  div.css('display', 'none');
+
+  document.body.appendChild(div[0]);
+  divsCache[ctrlName] = div;
+  names.push(ctrlName);
+
+});
+
+var getCtrlName = function(elm) {
+  var ctr = null;
+
+  while(elm) {
+    ctrl = elm.getAttribute('ng-controller');
+    if (ctrl) return ctrl;
+    elm = elm.parentElement;
+  }
+
+  return ctrl;
+};
+
+var hideAll = function() {
+  angular.forEach(divsCache, function(div) {
+    div.css('display', 'none');
+  });
+};
+
+var toggle = function(div) {
+  div.css('display', div.css('display') === 'none' ? 'block' : 'none');
+};
+
+
+document.addEventListener('keydown', function(e) {
+  if (e.keyCode === 27) {
+    hideAll();
+    return;
+  }
+
+  if (!e.metaKey && !e.ctrlKey) {
+    return;
+  }
+
+  // E
+  if (e.keyCode === 69) {
+    // for (var i = 0; i < names.length; i++) {
+    //   var div = divsCache[names[i]];
+    //   if (div.css('display') === 'none') {
+    //     div.css('display', 'block');
+    //     return;
+    //   }
+    // }
+
+    hideAll();
+    return;
+  }
+
+  // 1, 2, 3
+  if (48 < e.keyCode && e.keyCode < 53) {
+    toggle(divsCache[names[e.keyCode - 49]]);
+  }
+});
+
+
+document.addEventListener('click', function(e) {
+  if (e.metaKey || e.ctrlKey) {
+    toggle(divsCache[getCtrlName(e.target)]);
+  }
+});
+

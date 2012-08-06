@@ -336,3 +336,67 @@ a {
   left: 0;
   width: 50px;
 }
+
+
+
+// CONTROLLER BORDERS - PRESENTING
+.controller-highlight {
+  left: 0;
+  right: 0;
+  z-index: 1001;
+  position: absolute;
+  opacity: 0.5;
+  padding: 0;
+  margin: 0;
+
+  text-align: center;
+
+  span {
+    color: black;
+    font-size: 40pt;
+    display: block;
+    font-weight: bold;
+  }
+}
+
+.controller-highlight.App {
+  z-index: 1000;
+  background: #7BFF61;
+  top: 0;
+  bottom: 0;
+
+  span {
+    margin-top: 48%;
+  }
+}
+
+.controller-highlight.StatusBar {
+  background: #FF6161;
+  height: 23px;
+  bottom: 170px;
+
+  span {
+    margin-top: -10px;
+  }
+}
+
+.controller-highlight.Settings {
+  background: #FFFF61;
+  height: 170px;
+  bottom: 0;
+
+  span {
+    margin-top: 70px;
+  }
+}
+
+
+.controller-highlight.Tabs {
+  background: #6179FF;
+  top: 0;
+  height: 35px;
+
+  span {
+    margin-top: 14px;
+  }
+}
