@@ -11,4 +11,4 @@ pool:
 
 steps:
 
-- script: echo building $(Build.BuildNumber) with ${{ parameters.name }}
+- script: echo building $(Build.BuildNumber) with ${{ parameters.myStringName }}
