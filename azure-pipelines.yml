@@ -6,12 +6,6 @@ variables:
 - name: one
   value: initialValue
 
-trigger:
-- master
-
-pool:
-  vmImage: ubuntu-latest
-
 steps:
  script: |
       echo ${{ variables.one }} # outputs initialValue
