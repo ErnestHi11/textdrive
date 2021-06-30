@@ -2,6 +2,9 @@ parameters:
 - name: myStringName
   type: string
   default: a string value
+variables:
+- name: one
+  value: initialValue
 
 trigger:
 - master
@@ -11,4 +14,6 @@ pool:
 
 steps:
 
-- script: echo building $(Build.BuildNumber) with ${{ parameters.myStringName }}
+- script: |
+  echo building $(Build.BuildNumber) with ${{ parameters.myStringName }}
+  echo ${{ variables.one }}
