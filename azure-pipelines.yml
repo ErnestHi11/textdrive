@@ -6,3 +6,4 @@ parameters:
 steps:
 - script: |
     echo ${{ variables.one }} # outputs initialValue
+    echo ${one}
