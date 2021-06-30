@@ -5,4 +5,4 @@ parameters:
 
 steps:
 - script: |
-      echo ${{ variables.one }} # outputs initialValue
+    echo ${{ variables.one }} # outputs initialValue
