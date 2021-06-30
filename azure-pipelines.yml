@@ -1,5 +1,5 @@
 parameters:
-- name: myStringName
+- name: myString
   type: string
   default: a string value
 variables:
@@ -8,6 +8,5 @@ variables:
 
 steps:
 - script: |
-    echo ${{ variables.one }} # outputs initialValue
-    echo ${one}
-    echo this is ${{parameters.myStringName}}
+    echo variable one ${{ variables.one }}
+    echo parameter myString ${{parameters.myString}}
