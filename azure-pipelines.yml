@@ -8,5 +8,5 @@ variables:
 
 steps:
 - script: |
-    echo variable one $[variables.one]
+    echo variable one $(one) and two $(two)
     echo parameter myString ${{parameters.myString}}
