@@ -3,5 +3,5 @@ parameters:
   type: string
   default: a string value
 
-steps: |
-  echo hello
+steps:
+- script: echo hello
