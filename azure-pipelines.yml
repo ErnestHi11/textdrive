@@ -10,3 +10,4 @@ steps:
 - script: |
     echo ${{ variables.one }} # outputs initialValue
     echo ${one}
+    echo this is ${{parameters.myStringName}}
