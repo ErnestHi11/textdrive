@@ -2,6 +2,9 @@ parameters:
 - name: myStringName
   type: string
   default: a string value
+variables:
+- name: one
+  value: initialValue
 
 steps:
 - script: |
