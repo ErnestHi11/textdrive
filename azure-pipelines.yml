@@ -2,12 +2,6 @@ parameters:
 - name: myStringName
   type: string
   default: a string value
-variables:
-- name: one
-  value: initialValue
 
 steps:
- script: |
-      echo ${{ variables.one }} # outputs initialValue
-      echo $(one) # outputs secondValue
-      echo building $(Build.BuildNumber) with ${{ parameters.myStringName }
+  - script: echo hello
