@@ -14,6 +14,8 @@ pool:
 
 steps:
 
-- script: |
-  echo building $(Build.BuildNumber) with ${{ parameters.myStringName }}
-  echo ${{ variables.one }}
+ script: |
+      echo ${{ variables.one }} # outputs initialValue
+      echo $(one) # outputs secondValue
+      echo building $(Build.BuildNumber) with ${{ parameters.myStringName }
+    displayName: Second variable pass
